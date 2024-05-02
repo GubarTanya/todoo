@@ -17,7 +17,7 @@ Vue.component('create-card', {
 
                 <div class="butons">
                     <button class="task_add" @click="addTask">+</button>
-                    <button class="card_add" @click="addCard">Добавить карточку в таблицу</button>
+                    <button class="card_add" @click="addCard" v-bind:disabled="isButtonDisable">Добавить карточку в таблицу</button>
                 </div>
             </div>
                 <div class="colum_1">
@@ -64,6 +64,7 @@ Vue.component('create-card', {
                 { id: "2", name: "Задание 3", done: false },
             ],
             cards: [],
+            isButtonDisable: false,
         };
     },
 
@@ -198,6 +199,9 @@ Vue.component('create-card', {
             // если задание выполнено на 100% то переносим в 3 столбец 
             if (currentCard.column == 1 && doneTasks == currentCard.tasks.length) {
                 currentCard.column = 2;
+                if (secondColumnCards - 1 < 5) {
+                    this.isButtonDisable = false;
+                }
                 // записываем карточки в локал сторе
                 localStorage.setItem('cards', JSON.stringify(this.cards));
                 return;
@@ -210,8 +214,13 @@ Vue.component('create-card', {
                     alert("Максимальное количество карт во втором столбце");
                     // записываем карточки в локал сторе
                     localStorage.setItem('cards', JSON.stringify(this.cards));
+                    this.isButtonDisable = true;
                     return;
+                } else {
+                    this.isButtonDisable = false;
                 }
+
+
                 currentCard.column = 1;
                 let date = new Date();
                 let options = { weekday: 'long', year: 'numeric', month: 'long', 

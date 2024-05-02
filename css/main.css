@@ -1,0 +1,113 @@
+body {
+    background-color: azure;
+}
+
+.colums {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: start;
+}
+
+.create-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #B0C4DE;
+    color: azure;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    height: 500px;
+}
+
+input {
+    margin: 10px;
+    background-color: #c7d5e6;
+    border-radius: 5px;
+    height: 20px;
+    border: none;
+    box-shadow: 2px 1px 3px #626a72;
+    color: azure;
+}
+
+.dell {
+    background-color: rgb(202, 167, 175);
+    border-radius: 5px;
+    height: 20px;
+    border: none;
+    box-shadow: 2px 1px 3px #626a72;
+    color: azure;
+    margin-left: 60%;
+}
+
+.butons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task_add {
+    height: 30px;
+    width: 30px;
+    background-color: #c7d5e6;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 1px 3px #626a72;
+    color: azure;
+    margin-top: 10%;
+}
+
+.card_add {
+    background-color: #acc9be;
+    border-radius: 5px;
+    height: 40px;
+    border: none;
+    box-shadow: 2px 1px 3px #626a72;
+    color: azure;
+    margin-top: 15%;
+}
+
+.colum_1 {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 10px;
+    width: 33%;
+    padding: 10px;
+    background-color: rgb(202, 167, 175);
+    border-radius: 10px;
+}
+.colum_2 {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 10px;
+    width: 33%;
+    padding: 10px;
+    background-color: #B0C4DE;
+    border-radius: 10px;
+}
+.colum_3 {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 10px;
+    width: 33%;
+    padding: 10px;
+    background-color: #acc9be;
+    border-radius: 10px;
+}
+
+.card {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: azure;
+    box-shadow: 2px 1px 3px #626a72;
+}
+
+.strike {
+    text-decoration: line-through;
+}

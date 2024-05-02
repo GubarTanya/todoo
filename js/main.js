@@ -227,7 +227,7 @@ Vue.component('create-card', {
             }
 
             // переносим карточку во второй столбец если кол-во выполненных заданий > 50%
-            if (halfDoneTasks >= 0.5) {
+            if (halfDoneTasks >= 0.5 && currentCard.column == 0) {
                 if (secondColumnCards == 5) {
                     globalCurrentTask.done = false;
                     alert("Максимальное количество карт во втором столбце");

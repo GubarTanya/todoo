@@ -190,15 +190,17 @@ Vue.component('create-card', {
             let doneTasks = 0;
             let globalCurrentTask = {}; // строчка которую мы тыкнули
             for (let i = 0; i < currentCard.tasks.length; i++) {
-                let currentTask = currentCard.tasks[i];
-                if (currentTask.id == taskId) {
-                    currentTask.done = true;
-                    // записываем карточки в локал сторе
-                    localStorage.setItem('cards', JSON.stringify(this.cards));
-                    globalCurrentTask = currentTask;
-                }
-                if (currentCard.tasks[i].done) {
-                    doneTasks++;
+                if(currentCard.column !== 2){
+                    let currentTask = currentCard.tasks[i];
+                    if (currentTask.id == taskId) {
+                        currentTask.done = true;
+                        // записываем карточки в локал сторе
+                        localStorage.setItem('cards', JSON.stringify(this.cards));
+                        globalCurrentTask = currentTask;
+                    } 
+                    if (currentCard.tasks[i].done) {
+                        doneTasks++;
+                    }
                 }
             }
 

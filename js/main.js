@@ -1,4 +1,4 @@
-Vue.component('create-card', {
+Vue.component('create-card', { 
     template: `
     <div>
         <div class="colums">
@@ -6,7 +6,7 @@ Vue.component('create-card', {
                 <h1>Добавить карточку:</h1>
                 
                 <label for="task-name">Название заметки</label>
-                <input v-model="title" type="text">     
+                <input v-model="title"  type="text">     
                 
                 <div class="tasks-list" v-for="task in tasks">   <!-- отоброжает поля задач  -->
                     <div class="task">
@@ -57,7 +57,7 @@ Vue.component('create-card', {
 
     data() {
         return {
-            title: "",
+            title: "Название",
             tasks: [
                 { id: "0", name: "Задание 1", done: false },
                 { id: "1", name: "Задание 2", done: false },
@@ -126,18 +126,35 @@ Vue.component('create-card', {
                 return;
             }
         
-            if (secondColumnCards >= 6   && cardItem.column == 0) {
+            if (secondColumnCards >= 6 && cardItem.column == 0) {
                 alert("Создание карточек в первой колонке заблокировано, так как во второй колонке уже 5 карточек.");
                 return;
             }
         
+            if  (this.tasks.length > 2){
+                for (let i = 0; i < this.tasks.length; i++) {
+                    if (this.tasks[i].name == "" ) {
+                        this.tasks.splice(i, 1);
+                        return;
+                    }
+                }
+            }else {
+                alert("Нельзя меньше 3 задач");
+                return;
+            };
+
+            if (this.title == "" ) {
+                alert("Добавьте название карточке!");
+                return;
+            }
+
             this.cards.push(cardItem);
         
             // записываем карточки в локал стор
             localStorage.setItem('cards', JSON.stringify(this.cards));
         
             // занулить данные формы
-            this.title = "";
+            this.title = "Название";
             this.tasks = [
                 { id: "0", name: "Задача 1", done: false },
                 { id: "1", name: "Задача 2", done: false },
